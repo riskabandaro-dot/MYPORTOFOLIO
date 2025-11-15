@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rizqa Hasana - Kedokteran Hewan</title>
+    <!-- Menggunakan Font Inter sebagai default -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Memuat Ikon Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Menghubungkan ke file CSS eksternal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Animasi Masuk Halaman (Fade-in) -->
+    <div id="page-content" class="opacity-0">
+
+        <!-- Navigasi Bar (Sticky) -->
+        <nav id="navbar">
+            <div class="container nav-content">
+                <a href="#home" class="text-xl font-bold text-primary">Portofolio Rizqa</a>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">Tentang Kami</a>
+                    <a href="#skills">Pembelajaran</a>
+                    <a href="#contact">Kontak</a>
+                    <!-- Dark Mode Toggle -->
+                    <button id="darkModeToggle" class="p-2 rounded-full transition duration-300" style="border: none; background: none; cursor: pointer;">
+                        <i data-lucide="moon" class="w-5 h-5 dark-icon"></i>
+                        <i data-lucide="sun" class="w-5 h-5 light-icon" style="display: none;"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <!-- 1. HOME Section (Hero Section with Animated Text) -->
+            <section id="home" class="flex-center">
+                <div class="container hero-content">
+                    <div class="text-area scroll-reveal">
+                        <h1 class="text-dark">
+                            Halo, saya <span class="text-primary">Rizqa Hasana</span>
+                        </h1>
+                        <p class="text-2xl text-gray-600 dark-text-gray-300 mb-6">
+                            Mahasiswi Kedokteran Hewan Universitas Syiah Kuala <span id="animated-text" class="text-primary"></span>
+                        </p>
+                        <p>
+                            Selamat datang di portofolio saya. Semoga informasi yang saya bagikan dapat bermanfaat bagi sesama mahasiswa, pecinta hewan, maupun masyarakat luas.
+                        </p>
+                        <a href="#skills" class="btn-glow" style="margin-top: 2rem;">
+                            Lihat Pembelajaran Saya
+                        </a>
+                    </div>
+                    <div class="profile-image-container scroll-reveal">
+                        <!-- Placeholder Gambar Muka/Profil -->
+                        <img src="img/profil.jpeg" alt="Gambar Profil Rizqa Hasana" class="profile-img" onerror="this.src='https://placehold.co/400x400/4f46e5/ffffff?text=Gambar+Rizqa'">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. TENTANG KAMI Section -->
+            <section id="about">
+                <div class="container">
+                    <h2 class="scroll-reveal">Tentang Saya</h2>
+                    <div class="md-flex-row" style="gap: 3rem; align-items: flex-start;">
+                        <div class="md:w-1/2 scroll-reveal" style="flex: 1;">
+                            <h3 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1rem;" class="text-primary">Rizqa Hasana Putri Bandaro</h3>
+                            <p style="line-height: 1.6; margin-bottom: 1rem;">
+                                Saya adalah mahasiswi Kedokteran Hewan Universitas Syiah Kuala. Disini saya berbagi pengetahuan saya tentang perawatan luka dirumah untuk hewan peliharaan dan pencegahan penyakit umum pada hewan peliharaan.
+                            </p>
+                            <p style="line-height: 1.6; margin-bottom: 1rem;">
+                                Keinginan saya adalah untuk menjembatani kesenjangan informasi antara pemilik hewan peliharaan dan praktik medis yang baik, memastikan setiap hewan mendapatkan perawatan terbaik, bahkan untuk penanganan awal di rumah.
+                            </p>
+                        </div>
+                        <!-- Carousel / Slider Gambar -->
+                        <div class="md:w-1/2 scroll-reveal" style="flex: 1;">
+                            <div id="image-carousel">
+                                <!-- Slides Container -->
+                                <div id="carousel-slides">
+                                    <!-- Slide 1: Perawatan Luka -->
+                                    <div class="carousel-slide">
+                                        <img src="https://placehold.co/800x450/4f46e5/ffffff?text=Perawatan+Luka+Hewan" alt="Perawatan Luka" class="w-full h-auto object-cover">
+                                    </div>
+                                    <!-- Slide 2: Vaksinasi -->
+                                    <div class="carousel-slide">
+                                        <img src="https://placehold.co/800x450/facc15/000000?text=Pencegahan+Penyakit" alt="Pencegahan Penyakit" class="w-full h-auto object-cover">
+                                    </div>
+                                    <!-- Slide 3: Nutrisi -->
+                                    <div class="carousel-slide">
+                                        <img src="https://placehold.co/800x450/8b5cf6/ffffff?text=Nutrisi+Hewan" alt="Nutrisi Hewan" class="w-full h-auto object-cover">
+                                    </div>
+                                </div>
+
+                                <!-- Navigasi Carousel -->
+                                <button id="prev-btn" class="carousel-btn" style="left: 1rem;">
+                                    <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                                </button>
+                                <button id="next-btn" class="carousel-btn" style="right: 1rem;">
+                                    <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. PEMBELAJARAN (Skills) Section dengan Card Interaktif -->
+            <section id="skills">
+                <div class="container">
+                    <h2 class="scroll-reveal">Pembelajaran: Tips Perawatan Hewan</h2>
+                    <div class="skills-grid">
+                        <!-- Kartu 1: Kenali Jenis Luka -->
+                        <div class="skill-card scroll-reveal">
+                            <i data-lucide="bandage"></i>
+                            <h3>1. Kenali Jenis Luka yang Bisa Dirawat di Rumah</h3>
+                            <ul style="list-style: disc; margin-left: 1.5rem; margin-top: 1rem;">
+                                <li>Goresan atau sayatan kecil</li>
+                                <li>Luka lecet atau luka dangkal tanpa perdarahan hebat</li>
+                                <li>Luka akibat garukan/gatal</li>
+                                <li>Luka di area kulit yang tidak terlalu sensitif</li>
+                            </ul>
+                            <p style="margin-top: 1rem; font-weight: bold; color: #ef4444;">*Jika luka dalam, berdarah, atau bernanah, segera bawa ke dokter hewan.</p>
+                        </div>
+                        <!-- Kartu 2: Langkah Perawatan Luka -->
+                        <div class="skill-card scroll-reveal delay-200">
+                            <i data-lucide="first-aid"></i>
+                            <h3>2. Langkah Perawatan Luka di Rumah</h3>
+                            <ol style="list-style: decimal; margin-left: 1.5rem; margin-top: 1rem;">
+                                <li>Bersihkan area luka dengan air bersih.</li>
+                                <li>Potong bulu sekitar luka.</li>
+                                <li>Gunakan obat yang direkomendasikan dokter hewan.</li>
+                                <li>Gunakan perban dan *collar* (corong) agar tidak dijilat.</li>
+                                <li>Berikan nutrisi untuk mendukung penyembuhan.</li>
+                            </ol>
+                        </div>
+                        <!-- Kartu 3: Pencegahan Penyakit -->
+                        <div class="skill-card scroll-reveal delay-400">
+                            <i data-lucide="heart-handshake"></i>
+                            <h3>3. Pencegahan Penyakit Umum</h3>
+                            <ul style="list-style: disc; margin-left: 1.5rem; margin-top: 1rem;">
+                                <li>Vaksinasi rutin sesuai jadwal dokter.</li>
+                                <li>Pencegahan parasit (obat cacing 3 bln/kutu bulanan).</li>
+                                <li>Menjaga kebersihan kandang dan hewan.</li>
+                                <li>Pemberian nutrisi seimbang (hindari coklat, bawang, garam).</li>
+                                <li>Pemeriksaan kesehatan rutin (minimal 2 bulan sekali).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. KONTAK Section -->
+            <section id="contact">
+                <div class="container" style="max-width: 768px;">
+                    <h2 class="scroll-reveal">Hubungi Saya</h2>
+                    <form action="#" class="scroll-reveal">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Alamat Email</label>
+                            <input type="email" id="email" name="email" placeholder="email@contoh.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan / Pertanyaan</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tulis pesan atau proyek yang ingin Anda diskusikan..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-glow" style="width: 100%; font-size: 1.125rem;">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 Rizqa Hasana Putri Bandaro | Portofolio Kedokteran Hewan.</p>
+        </footer>
+
+    </div> <!-- End Page Content Container -->
+
+    <!-- Menghubungkan ke file JavaScript eksternal -->
+    <script src="script.js"></script>
+</body>
+</html>
