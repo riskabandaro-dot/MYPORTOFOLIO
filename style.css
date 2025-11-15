@@ -1,0 +1,353 @@
+/* Variabel CSS untuk Warna */
+:root {
+    /* Light Mode */
+    --primary-color: #4f46e5; /* Indigo 600 */
+    --accent-color: #facc15; /* Yellow 400 */
+    --bg-light: #f9fafb; /* Gray 50 */
+    --text-dark: #1f2937; /* Gray 800 */
+    --card-bg: #ffffff;
+    --section-bg-alt: #f3f4f6; /* Gray 100 */
+}
+.dark {
+    /* Dark Mode */
+    --primary-color: #8b5cf6; /* Violet 500 */
+    --accent-color: #a7f3d0; /* Teal 200 */
+    --bg-light: #111827; /* Gray 900 */
+    --text-dark: #f3f4f6; /* Gray 100 */
+    --card-bg: #374151; /* Gray 700 */
+    --section-bg-alt: #1f2937; /* Gray 800 */
+}
+
+/* Styling Dasar */
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    transition: background-color 0.5s, color 0.5s;
+    margin: 0;
+}
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Utility Classes */
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.flex-col { flex-direction: column; }
+.text-center { text-align: center; }
+.md-flex-row { display: flex; flex-direction: column; }
+@media (min-width: 768px) {
+    .md-flex-row { flex-direction: row; }
+}
+.text-primary { color: var(--primary-color); }
+.bg-primary { background-color: var(--primary-color); }
+.text-accent { color: var(--accent-color); }
+
+/* Navbar Styling */
+#navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 50;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+#navbar .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#navbar .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* space-x-6 */
+}
+#navbar a {
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+#navbar a:hover {
+    color: var(--primary-color);
+}
+.dark #navbar a:hover {
+    color: var(--accent-color);
+}
+
+/* Navbar Scrolled Effect (Diimplementasikan di JS) */
+.navbar-scrolled {
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.dark .navbar-scrolled {
+    background-color: #1f2937; /* Gray 800 */
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+/* Page Content Fade-in */
+#page-content {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+/* Hero Section */
+#home {
+    height: 100vh;
+    padding: 4rem 1rem 1rem;
+    background-color: var(--section-bg-alt);
+    transition: background-color 0.5s;
+}
+#home .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+@media (min-width: 768px) {
+    #home .hero-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+#home .text-area {
+    max-width: 50%;
+    text-align: center;
+}
+@media (min-width: 768px) {
+    #home .text-area {
+        text-align: left;
+    }
+}
+#home h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+@media (min-width: 768px) {
+    #home h1 { font-size: 3.75rem; }
+}
+#home p {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    color: var(--text-color-secondary);
+}
+.profile-image-container {
+    display: flex;
+    justify-content: center;
+    max-width: 300px;
+}
+.profile-img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+    border: 4px solid var(--accent-color);
+    transition: all 0.5s;
+    cursor: pointer;
+    object-fit: cover;
+}
+.profile-img:hover {
+    transform: scale(1.05);
+}
+
+/* Animated Text (Typing Effect) */
+#animated-text {
+    overflow: hidden;
+    border-right: .15em solid currentColor;
+    white-space: nowrap;
+    letter-spacing: .05em;
+    display: inline-block;
+    font-family: monospace;
+    font-weight: bold;
+    width: 0; /* Dimulai dari nol */
+}
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: currentColor }
+}
+
+/* Button Glow Effect */
+.btn-glow {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    animation: glow 1.5s infinite alternate;
+}
+.btn-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(250, 204, 21, 0.8); /* Yellow glow */
+}
+.dark .btn-glow:hover {
+    box-shadow: 0 0 15px rgba(167, 243, 208, 0.8); /* Teal glow */
+}
+@keyframes glow {
+    0% { box-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color); }
+    100% { box-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color); }
+}
+
+/* Sections Styling */
+section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    transition: background-color 0.5s;
+}
+#about { background-color: var(--card-bg); }
+#skills { background-color: var(--section-bg-alt); }
+#contact { background-color: var(--card-bg); }
+section h2 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+/* Carousel Styling */
+#image-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+}
+#carousel-slides {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+}
+#carousel-slides div {
+    min-width: 100%;
+    flex-shrink: 0;
+}
+#image-carousel img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+#prev-btn { left: 1rem; }
+#next-btn { right: 1rem; }
+
+/* Skills Card Styling (Card Interaktif) */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+@media (min-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.skill-card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.skill-card:hover {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05); /* Membesar saat di-hover */
+}
+.skill-card i {
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+.skill-card h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+}
+.skill-card p {
+    color: #6b7280; /* Gray 600 */
+}
+.dark .skill-card p {
+    color: #d1d5db; /* Gray 300 */
+}
+
+
+/* Contact Form */
+#contact .form-group {
+    margin-bottom: 1.5rem;
+}
+#contact label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+#contact input, #contact textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+    background-color: var(--card-bg);
+    color: var(--text-dark);
+}
+#contact input:focus, #contact textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+    outline: none;
+}
+.dark #contact input, .dark #contact textarea {
+    border-color: #4b5563; /* Gray 600 */
+}
+
+/* Footer */
+footer {
+    padding: 1.5rem;
+    text-align: center;
+    background-color: #1f2937; /* Gray 800 */
+    color: #9ca3af; /* Gray 400 */
+}
+.dark footer {
+    background-color: #030712; /* Gray 950 */
+    color: #6b7280; /* Gray 500 */
+}
+
+/* Scroll Reveal Animation */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Penyesuaian delay untuk grid */
+.delay-200 { transition-delay: 0.2s; }
+.delay-400 { transition-delay: 0.4s; }
